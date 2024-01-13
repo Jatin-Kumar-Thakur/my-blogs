@@ -1,0 +1,32 @@
+{
+  "name": "my-blogs-post",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  },
+  "description": "First, install the dependencies:",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jatin-Kumar-Thakur/my-blogs.git"
+  },
+  "author": "Jatin Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jatin-Kumar-Thakur/my-blogs/issues"
+  },
+  "homepage": "https://github.com/Jatin-Kumar-Thakur/my-blogs#readme"
+}
