@@ -2,8 +2,9 @@
 
 const Footer = () => {
     return (
-        <div>
-            <h1>Footer</h1>
+        <div className="text-sm flex justify-between items-center h-16 text-[#44403C]">
+            <p>Jatin Kumar</p>
+            <p>Design and Developed by Jatin Kumar</p>
         </div>
     )
 }

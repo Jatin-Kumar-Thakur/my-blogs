@@ -6,7 +6,9 @@ const Navbar = () => {
     return (
         <nav className=" flex justify-between items-center w-full h-20">
             <div className="">
-                <p className="font-bold text-3xl">Blogs</p>
+                <p className="font-bold text-3xl">
+                    <Link href='/'>LOGO</Link>
+                </p>
             </div>
             <div className="">
                 <Links />

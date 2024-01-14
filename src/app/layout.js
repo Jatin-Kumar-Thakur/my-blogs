@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className={`container m-auto px-12 min-h-screen flex flex-col justify-between`}>
+          <div className="sticky top-0 backdrop-blur-lg z-50">
           <Navbar />
+          </div>
           {children}
           <Footer />
         </div>
