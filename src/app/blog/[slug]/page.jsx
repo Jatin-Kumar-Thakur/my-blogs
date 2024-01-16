@@ -1,6 +1,15 @@
+import { getPost, getUser } from "@/lib/data";
 import Image from "next/image";
 
-const Slug = () => {
+const Slug = async ({params}) => {
+
+    const {slug}=params;
+
+    //Data without api
+    const post=await getPost(slug);
+    
+    const user=await getUser(post.userId);
+
     return (
         <div className="flex flex-col gap-24 mt-5
             md:flex-row md:h-[calc(100vh-200px)]
@@ -10,7 +19,7 @@ const Slug = () => {
                 md:basis-1/3
             ">
                 <Image
-                    src='/post.jpg'
+                    src={post.img ||  '/post.jpg'}
                     alt=""
                     fill
                     className="object-contain md:object-cover"
@@ -19,7 +28,7 @@ const Slug = () => {
             <div className=" md:overflow-y-scroll 
                 md:basis-2/3
             ">
-                <h1 className="text-4xl font-bold mb-5">Title</h1>
+                <h1 className="text-4xl font-bold mb-5">{post.title}</h1>
                 <div className=" h-10 flex mb-5 items-center gap-5">
                     <Image
                         src='/noavatar.png'
@@ -29,37 +38,16 @@ const Slug = () => {
                     />
                     <div className="font-medium">
                         <p className="text-sm text-gray-400">Author</p>
-                        <p>Jatin Kumar</p>
+                        <p>{user.username}</p>
                     </div>
                     <div className="">
                         <p className="text-sm text-gray-400">Published</p>
-                        <p>14 Jan 2024</p>
+                        <p>{user?.createdAt.toString().slice(3,16)}</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <h1>Desc</h1>
                     <p className="text-xl mb-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Explicabo nam quod, quasi architecto praesentium labore
-                        beatae ipsam eius deleniti. Sint vero molestias doloremque
-                        eum, illo ipsum nostrum dicta possimus voluptates necessitatibus
-                        deleniti fuga aliquid! Impedit!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Explicabo nam quod, quasi architecto praesentium labore
-                        beatae ipsam eius deleniti. Sint vero molestias doloremque
-                        eum, illo ipsum nostrum dicta possimus voluptates necessitatibus
-                        deleniti fuga aliquid! Impedit!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Explicabo nam quod, quasi architecto praesentium labore
-                        beatae ipsam eius deleniti. Sint vero molestias doloremque
-                        eum, illo ipsum nostrum dicta possimus voluptates necessitatibus
-                        deleniti fuga aliquid! Impedit!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Explicabo nam quod, quasi architecto praesentium labore
-                        beatae ipsam eius deleniti. Sint vero molestias doloremque
-                        eum, illo ipsum nostrum dicta possimus voluptates necessitatibus
-                        deleniti fuga aliquid! Impedit!
-
+                        {post.desc}
                     </p>
                 </div>
             </div>
