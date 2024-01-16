@@ -29,12 +29,12 @@ const Slug = async ({params}) => {
                 md:basis-2/3
             ">
                 <h1 className="text-4xl font-bold mb-5">{post.title}</h1>
-                <div className=" h-10 flex mb-5 items-center gap-5">
+                <div className="h-10 flex mb-5 items-center gap-5 overflow-hidden">
                     <Image
-                        src='/noavatar.png'
+                        src={user.img || '/noavatar.png'}
                         width={40}
                         height={40}
-                        className="rounded-full "
+                        className="rounded-full object-contain"
                     />
                     <div className="font-medium">
                         <p className="text-sm text-gray-400">Author</p>
