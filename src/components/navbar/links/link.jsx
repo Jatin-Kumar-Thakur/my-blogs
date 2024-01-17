@@ -3,6 +3,7 @@
 import { useState } from "react";
 import NavLink from "./navlink/page";
 import { FaBars } from "react-icons/fa";
+import { handleGithubLogOut } from "@/lib/action";
 
 // import { useState } from "react";
 // import styles from "./links.module.css";
@@ -28,8 +29,7 @@ const links = [
     },
 ];
 
-const Links = () => {
-    const session = true;
+const Links = ({ session }) => {
     const isAdmin = true;
     const [toggle, setToggle] = useState(false);
     return (
@@ -42,14 +42,16 @@ const Links = () => {
                     session ? (
                         <>
                             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-                            <button className="p-2 bg-[var(--btn)] font-medium ml-3">Logout</button>
+                            <form action={handleGithubLogOut}>
+                                <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
+                            </form>
                         </>
                     )
                         :
                         <NavLink item={{ title: "Login", path: "/login" }} />
                 }
             </div>
-            <button className="md:hidden" onClick={() => setToggle(!toggle)}><FaBars size={25}/></button>
+            <button className="md:hidden" onClick={() => setToggle(!toggle)}><FaBars size={25} /></button>
             {
                 toggle && (
                     <div className="md:hidden flex flex-col items-center justify-center absolute right-0 top-[100px] gap-4 text-sm
@@ -62,7 +64,9 @@ const Links = () => {
                             session ? (
                                 <>
                                     {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-                                    <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
+                                    <form action={handleGithubLogOut}>
+                                        <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
+                                    </form>
                                 </>
                             )
                                 :

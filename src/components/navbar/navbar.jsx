@@ -1,17 +1,20 @@
 import Link from "next/link"
-import style from './navbar.module.css';
 import Links from "./links/link";
+import { handleGithubLogOut } from "@/lib/action";
+import { auth } from "@/lib/auth";
 
-const Navbar = () => {
+const Navbar = async () => {
+    const session = await auth();
+    console.log(session);
     return (
         <nav className=" flex justify-between items-center w-full h-20">
             <div className="">
                 <p className="font-bold text-3xl">
-                    <Link href='/'>LOGO</Link>
+                        <Link href='/'>LOGO</Link>
                 </p>
             </div>
             <div className="">
-                <Links />
+                <Links session={session}/>
             </div>
         </nav>
     )
