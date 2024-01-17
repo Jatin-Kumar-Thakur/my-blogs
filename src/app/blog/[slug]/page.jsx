@@ -1,14 +1,24 @@
 import { getPost, getUser } from "@/lib/data";
 import Image from "next/image";
 
-const Slug = async ({params}) => {
+// Using api routes
+const getData = async (slug) => {
+    const post = await fetch(`http://localhost:3000/api/blog/${slug}`);
+    if (!post.ok) {
+        throw new Error("Somthing Went wrong while fetching post");
+    }
+    return post.json();
+}
 
-    const {slug}=params;
+const SlugPost = async ({ params }) => {
+
+    const { slug } = params;
+    const post = await getData(slug);
 
     //Data without api
-    const post=await getPost(slug);
-    
-    const user=await getUser(post.userId);
+    // const post = await getPost(slug);
+
+    const user = await getUser(post.userId);
 
     return (
         <div className="flex flex-col gap-24 mt-5
@@ -19,7 +29,7 @@ const Slug = async ({params}) => {
                 md:basis-1/3
             ">
                 <Image
-                    src={post.img ||  '/post.jpg'}
+                    src={post.img || '/post.jpg'}
                     alt=""
                     fill
                     className="object-contain md:object-cover"
@@ -42,7 +52,7 @@ const Slug = async ({params}) => {
                     </div>
                     <div className="">
                         <p className="text-sm text-gray-400">Published</p>
-                        <p>{user?.createdAt.toString().slice(3,16)}</p>
+                        <p>{user?.createdAt.toString().slice(3, 16)}</p>
                     </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -54,4 +64,4 @@ const Slug = async ({params}) => {
         </div>
     )
 }
-export default Slug;
+export default SlugPost;
