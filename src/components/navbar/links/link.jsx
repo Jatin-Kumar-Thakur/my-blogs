@@ -43,12 +43,12 @@ const Links = ({ session }) => {
                         <>
                             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
                             <form action={handleGithubLogOut}>
-                                <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
+                                <button className="p-2 bg-[var(--btn)] font-medium ml-2">Logout</button>
                             </form>
                         </>
                     )
                         :
-                        <NavLink item={{ title: "Login", path: "/login" }} />
+                        <NavLink  item={{ title: "Login", path: "/login" }} />
                 }
             </div>
             <button className="md:hidden" onClick={() => setToggle(!toggle)}><FaBars size={25} /></button>
