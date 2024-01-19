@@ -6,6 +6,7 @@ import { auth } from "@/lib/auth";
 
 const Admin = async () => {
     const session = await auth();
+    console.log(session);
     return (
         <div className="flex gap-5">
             <div className="basis-1/2">

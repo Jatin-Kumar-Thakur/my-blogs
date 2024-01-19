@@ -99,12 +99,12 @@ export const deletePost = async (formData) => {
 // *********************************** ADD user*******************
 
 export const addUser = async (prevState,formData) => {
-    const { username, email, password, img } = Object.fromEntries(formData);
+    const { username, email, password, img ,isAdmin} = Object.fromEntries(formData);
 
     try {
         connectToDb();
         const newUser = new User({
-            username, email, password, img
+            username, email, password, img ,isAdmin
         });
         const user = await User.findOne({username});
         if (!user) {
