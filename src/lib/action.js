@@ -62,18 +62,17 @@ export const login = async (previousState, formData) => {
 // *********************************** ADD POST*******************
 
 export const addPost = async (prevState,formData) => {
-    const { title, desc, slug, userId } = Object.fromEntries(formData);
+    const { title, desc, slug, userId ,img} = Object.fromEntries(formData);
 
     try {
         connectToDb();
         const newPost = new Post({
-            title, desc, slug, userId
+            title, desc, slug, userId,img
         });
         await newPost.save();
         console.log("Post Successfully");
         revalidatePath("/blog")
         revalidatePath("/admin")
-        revalidatePath("/admin/addpost")
         
     } catch (error) {
         console.log(error);
@@ -102,8 +101,8 @@ export const deletePost = async (formData) => {
 // *********************************** ADD user*******************
 
 export const addUser = async (prevState,formData) => {
-    const { username, email, password, img ,isAdmin} = Object.fromEntries(formData);
 
+    const { username, email, password, img ,isAdmin} = Object.fromEntries(formData);
     try {
         connectToDb();
         const newUser = new User({
