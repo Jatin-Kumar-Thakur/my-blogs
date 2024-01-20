@@ -5,7 +5,9 @@ const Page = () => {
         <div className="w-full flex justify-between items-center">
             <div className="w-full flex flex-col justify-around gap-7">
                 <p className=" text-2xl font-bold text-[var(--btn)]">About Agency</p>
-                <h1 className="text-5xl  font-bold">SomeThing is Going on here soo please get out</h1>
+                <h1 className="text-2xl  font-bold lg:text-5xl">
+                    SomeThing is Going on here soo please get out
+                </h1>
                 <p className="text-sm ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Sint reprehenderit ratione molestias nobis necessitatibus 
@@ -27,7 +29,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-            <div className=" w-full flex justify-end">
+            <div className=" sm:w-full sm:flex sm:justify-end hidden ">
                 <Image
                     src='/about.png'
                     alt='home img'

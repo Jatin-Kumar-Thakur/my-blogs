@@ -56,7 +56,7 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
                                 username: profile.login,
                                 email: profile.email,
                                 img: profile.avatar_url,
-                            })
+                            });
                             await newUser.save();
                         }
                     } catch (error) {

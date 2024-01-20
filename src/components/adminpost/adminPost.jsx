@@ -1,6 +1,7 @@
 import { deletePost } from "@/lib/action";
 import { getPosts } from "@/lib/data"
 import Image from "next/image";
+import Link from "next/link";
 
 
 const AdminPost = async () => {
@@ -12,8 +13,10 @@ const AdminPost = async () => {
     //     return deletePost.bind(null, id);
     // }
     return (
-        <div className="">
-            <h1 className="text-2xl font-bold my-2">Posts</h1>
+        <div className="w-full">
+            <h1 className=" flex justify-between text-2xl font-bold my-2">Posts  
+                <span><Link href='/admin/addpost' className="bg-[#2d2b42] text-xl p-1 rounded-lg">Add Post</Link></span>
+            </h1>
             <div className="">
                 {
                     posts.map((item) => (

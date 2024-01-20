@@ -6,9 +6,9 @@ const AdminUserForm = () => {
     const [state, formAction] = useFormState(addUser, undefined)
     return (
         <div className="">
-            <h1 className="text-2xl font-bold my-2">Add New User</h1>
+            <h1 className="text-2xl font-bold my-2 text-center">Add New User</h1>
             <div className="">
-                <form action={formAction} className="flex flex-col gap-4">
+                <form action={formAction} className="flex flex-col gap-4 items-center">
                     <input type="text" name="username" placeholder="Enter name.."
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "

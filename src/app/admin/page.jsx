@@ -8,8 +8,11 @@ const Admin = async () => {
     const session = await auth();
     console.log(session);
     return (
-        <div className="flex gap-5">
-            <div className="basis-1/2">
+        <div className="flex justify-center gap-5 w-full min-h-[calc(100vh-230px)]">
+            <div className="w-[65%]">
+                <AdminPost />
+            </div>
+            {/* <div className="basis-1/2">
                 <div className="">
                     <AdminPost />
                 </div>
@@ -24,7 +27,7 @@ const Admin = async () => {
                 <div className="">
                     <AdminUserForm />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

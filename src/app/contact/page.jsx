@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Contact = () => {
     return (
-        <div className="flex justify-between">
-            <div className="w-full">
+        <div className="flex justify-between items-center">
+            <div className="w-full hidden md:block">
                 <Image 
                     src='/contact.png'
                     alt="contact"
@@ -11,25 +11,26 @@ const Contact = () => {
                     height={400}
                 />
             </div>
-            <div className="w-full text-black ">
-                <form action="" className="flex flex-col gap-4">
+            <div className="w-full text-black">
+                <h1 className="text-white text-4xl mb-5 text-center font-semibold">Have any query?</h1>
+                <form action="" className="flex flex-col justify-center items-center gap-4 w-full">
                     <input type="text" name="name" placeholder="Enter name.."
-                        className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
+                        className="w-full sm:w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
                     <input type="text" name="name" placeholder="Email address.."
-                        className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
+                        className="w-full sm:w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
                     <input type="text" name="name" placeholder="Phone number"
-                        className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
+                        className="w-full sm:w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
                     <textarea type="text" rows='6' name="name" placeholder="message..."
-                        className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
+                        className="w-full sm:w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <button className="bg-[var(--btn)] w-[80%] p-2 rounded-md">Submit</button>
+                    <button className="bg-[var(--btn)] w-full sm:w-[80%] p-2 rounded-md">Submit</button>
                 </form>
             </div>
         </div>
