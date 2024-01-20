@@ -8,7 +8,7 @@ const AdminUser = async () => {
     const users = await getAllUsers();
     // const [state,formAction]=useFormState(deleteUser,undefined);
     return (
-        <div className="">
+        <div className="w-full">
             <h1 className="flex justify-between text-2xl font-bold my-2">Users
                 <span><Link href='/admin/adduser' className="bg-[#2d2b42] text-xl p-1 rounded-lg">Add User</Link></span>
             </h1>

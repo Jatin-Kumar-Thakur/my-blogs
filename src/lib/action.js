@@ -1,9 +1,10 @@
 "use server"
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { signIn, signOut } from "./auth";
 import { Post, User } from "./models";
 import { connectToDb } from "./utils";
 import bcrypt from "bcryptjs"
+import { redirect } from "next/navigation";
 
 
 export const handleGithubLogin = async () => {
@@ -72,6 +73,8 @@ export const addPost = async (prevState,formData) => {
         console.log("Post Successfully");
         revalidatePath("/blog")
         revalidatePath("/admin")
+        revalidatePath("/admin/addpost")
+        
     } catch (error) {
         console.log(error);
         return { error: "something went wrong While adding post" }

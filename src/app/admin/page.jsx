@@ -9,25 +9,9 @@ const Admin = async () => {
     console.log(session);
     return (
         <div className="flex justify-center gap-5 w-full min-h-[calc(100vh-230px)]">
-            <div className="w-[65%]">
+            <div className="w-full sm:w-[65%]">
                 <AdminPost />
             </div>
-            {/* <div className="basis-1/2">
-                <div className="">
-                    <AdminPost />
-                </div>
-                <div className="">
-                    <AdminPostForm userId={session.user.id}/>
-                </div>
-            </div>
-            <div className="basis-1/2">
-                <div className="">
-                    <AdminUser />
-                </div>
-                <div className="">
-                    <AdminUserForm />
-                </div>
-            </div> */}
         </div>
     )
 }
