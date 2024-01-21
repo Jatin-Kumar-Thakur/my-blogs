@@ -9,11 +9,11 @@ import { app } from "@/lib/firebase";
 const storage = getStorage(app);
 const AdminUserForm = () => {
     const [image, setImage] = useState(null);
-    const [media , setMedia]=useState("");
+    const [media, setMedia] = useState("");
 
     useEffect(() => {
         const upload = () => {
-            const name=new Date().getTime+image.name;
+            const name = new Date().getTime + image.name;
             const storageRef = ref(storage, name);
             const uploadTask = uploadBytesResumable(storageRef, image);
             uploadTask.on('state_changed',
@@ -56,7 +56,7 @@ const AdminUserForm = () => {
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <input type="hidden" name="img" value={media ? media : undefined}/>
+                    <input type="hidden" name="img" value={media ? media : undefined} />
                     <input type="file" placeholder="Image" onChange={(e) => setImage(e.target.files[0])}
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
@@ -65,10 +65,10 @@ const AdminUserForm = () => {
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <select name="idAdmin" className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]">
-                        <option value="false">IsAdmin?</option>
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
+                    <select name="isAdmin" className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]">
+                        <option value={false} selected>IsAdmin?</option>
+                        <option value={false}>No</option>
+                        <option value={true}>Yes</option>
                     </select>
                     <button className="bg-[var(--btn)] w-[80%] p-2 rounded-md">Submit</button>
                     {

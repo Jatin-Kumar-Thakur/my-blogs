@@ -1,8 +1,5 @@
-// 'use client'
-// import { useState } from "react";
-// import Loading from "../loading";
+
 import Postcard from "@/components/postcard/postcard";
-import { getPosts } from "@/lib/data";
 
 const getData = async () => {
     let post = await fetch('http://localhost:3000/api/blog');

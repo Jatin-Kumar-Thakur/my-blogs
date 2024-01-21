@@ -27,9 +27,14 @@ const links = [
         title: "Blog",
         path: "/blog",
     },
+    {
+        title: "Mine",
+        path: "/userblogs",
+    },
 ];
 
 const Links = ({ session }) => {
+    // console.log(session.user);
     const isAdmin = true;
     const [toggle, setToggle] = useState(false);
     return (

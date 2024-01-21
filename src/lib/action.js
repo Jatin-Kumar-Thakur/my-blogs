@@ -22,7 +22,7 @@ export const register = async (previousState, formData) => {
 
     try {
         connectToDb();
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ username });
         if (!user) {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(password, salt);
@@ -61,19 +61,19 @@ export const login = async (previousState, formData) => {
 
 // *********************************** ADD POST*******************
 
-export const addPost = async (prevState,formData) => {
-    const { title, desc, slug, userId ,img} = Object.fromEntries(formData);
+export const addPost = async (prevState, formData) => {
+    const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
     try {
         connectToDb();
         const newPost = new Post({
-            title, desc, slug, userId,img
+            title, desc, slug, userId, img
         });
         await newPost.save();
         console.log("Post Successfully");
         revalidatePath("/blog")
         revalidatePath("/admin")
-        
+
     } catch (error) {
         console.log(error);
         return { error: "something went wrong While adding post" }
@@ -100,20 +100,22 @@ export const deletePost = async (formData) => {
 
 // *********************************** ADD user*******************
 
-export const addUser = async (prevState,formData) => {
+export const addUser = async (prevState, formData) => {
 
-    const { username, email, password, img ,isAdmin} = Object.fromEntries(formData);
+    const { username, email, password, img, isAdmin } = Object.fromEntries(formData);
     try {
         connectToDb();
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
         const newUser = new User({
-            username, email, password, img ,isAdmin
+            username, email, password: hashedPassword, img, isAdmin
         });
-        const user = await User.findOne({username});
+        const user = await User.findOne({ username });
         if (!user) {
             await newUser.save();
             console.log("User added Successfully");
         }
-        else{
+        else {
             console.log("user Already exists");
         }
         revalidatePath("/admin")
@@ -130,7 +132,7 @@ export const deleteUser = async (formData) => {
 
     try {
         connectToDb();
-        await Post.deleteMany({userId:id})
+        await Post.deleteMany({ userId: id })
         await User.findByIdAndDelete(id);
         console.log("User is Deleted");
         revalidatePath("/admin");
@@ -140,4 +142,13 @@ export const deleteUser = async (formData) => {
     }
 }
 
-
+// export const userDetails=async (id)=>{
+//     try {
+//         connectToDb();
+//         const data=await User.findById(id);
+//         return data;
+//     } catch (error) {
+//         console.log(error);
+//         return { error: "something went wrong While findinf User details" }
+//     }
+// }

@@ -6,7 +6,6 @@ import Link from "next/link";
 
 const AdminUser = async () => {
     const users = await getAllUsers();
-    // const [state,formAction]=useFormState(deleteUser,undefined);
     return (
         <div className="w-full">
             <h1 className="flex justify-between text-2xl font-bold my-2">Users
@@ -26,14 +25,10 @@ const AdminUser = async () => {
                                 <span>{item.username}</span>
                             </div>
                             <div className="">
-                                {/* <form action={() => deletePostWithId(item.id)}> */}
                                 <form action={deleteUser}>
                                     <input type="hidden" value={item.id} name="id" />
                                     <button className="bg-[var(--btn)] p-1 rounded-lg">Delete</button>
                                 </form>
-                                {/* {
-                                    state && state.error
-                                } */}
                             </div>
                         </div>
                     ))
