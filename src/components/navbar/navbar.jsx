@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Links from "./links/link";
-import { handleGithubLogOut } from "@/lib/action";
+// import { handleGithubLogOut } from "@/lib/action";
 import { auth } from "@/lib/auth";
 
 const Navbar = async () => {

@@ -36,7 +36,7 @@ const Login = () => {
                         {state.error}
                     </p>
                 }
-                <p><Link href="/register">Don't have an Account?</Link></p>
+                <p><Link href="/register">Dont have an Account?</Link></p>
             </div>
         </div>
     )

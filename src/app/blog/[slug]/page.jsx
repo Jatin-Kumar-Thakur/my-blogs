@@ -1,7 +1,7 @@
-import { getPost, getUser } from "@/lib/data";
+import { getUser } from "@/lib/data";
 import Image from "next/image";
 
-// Using api routes
+// Using api routes 
 const getData = async (slug) => {
     const post = await fetch(`http://localhost:3000/api/blog/${slug}`);
     if (!post.ok) {
@@ -30,7 +30,7 @@ const SlugPost = async ({ params }) => {
             ">
                 <Image
                     src={post.img || '/post.jpg'}
-                    alt=""
+                    alt="post image"
                     fill
                     className="object-contain md:object-cover"
                 />
@@ -42,6 +42,7 @@ const SlugPost = async ({ params }) => {
                 <div className="h-10 flex mb-5 items-center gap-5 overflow-hidden">
                     <Image
                         src={user.img || '/noavatar.png'}
+                        alt="user image"
                         width={40}
                         height={40}
                         className="rounded-full object-contain"

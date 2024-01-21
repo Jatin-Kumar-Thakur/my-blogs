@@ -30,8 +30,8 @@ const AdminPostForm = ({ userId }) => {
                             break;
                     }
                 },
-                (error) => {
-                },
+                // (error) => {
+                // },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         // console.log('File available at', downloadURL);

@@ -2,7 +2,9 @@ import { Post } from "@/lib/models";
 import { connectToDb } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
-export async function GET(request){
+// export async function GET(request){
+export async function GET(){
+    
     try {
         connectToDb();
         const posts=await Post.find();

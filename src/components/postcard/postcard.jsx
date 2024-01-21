@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const Postcard = ({post}) => {
     return (
-        <div className="flex flex-col gap-5 mb-5 w-full " key={post.id}>
+        <div className="flex flex-col gap-5 mb-5 w-full ">
             <div className="flex text-nowrap">
                 <div className="w-[90%] h-[300px] relative 
                     md:h-[350px]

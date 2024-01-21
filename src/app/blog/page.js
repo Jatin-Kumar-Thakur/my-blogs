@@ -32,8 +32,7 @@ const Blog = async () => {
                             md:w-[40%]
                             xl:w-[30%]
                             "
-                        key={post.id}
-                    >
+                        key={post.id}>
                         <Postcard post={post} />
                     </div>
                 ))
