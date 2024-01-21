@@ -2,7 +2,8 @@
 import Postcard from "@/components/postcard/postcard";
 
 const getData = async () => {
-    let post = await fetch('http://localhost:3000/api/blog');
+    const url=process.env.BLOG_URL;
+    let post = await fetch(url);
     
     if (!post.ok) {
         throw new Error("Something went wrong");
