@@ -21,7 +21,7 @@ const SlugPost = async ({ params }) => {
     const user = await getUser(post.userId);
 
     return (
-        <div className="flex flex-col gap-24 mt-5
+        <div key={post.id} className="flex flex-col gap-24 mt-5
             md:flex-row md:h-[calc(100vh-200px)]
         ">
             <div className=" h-[400px] relative

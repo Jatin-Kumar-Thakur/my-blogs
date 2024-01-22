@@ -29,11 +29,10 @@ const Blog = async () => {
         <div className="flex gap-5 flex-wrap justify-center items-center mt-10">
             {
                 posts.map((post) => (
-                    <div className="w-[70%] flex justify-center items-center
+                    <div key={post.id} className="w-[70%] flex justify-center items-center
                             md:w-[40%]
                             xl:w-[30%]
-                            "
-                        key={post.id}>
+                            ">
                         <Postcard post={post} />
                     </div>
                 ))

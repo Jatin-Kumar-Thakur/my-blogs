@@ -48,7 +48,7 @@ export const login = async (previousState, formData) => {
 
     try {
         // Using nextAuth
-        const loginuser = await signIn("credentials", { username, password, callbackUrl: '/', redirect: false });
+        await signIn("credentials", { username, password, callbackUrl: '/', redirect: false });
         revalidatePath("/login");
         revalidatePath("/");
         revalidatePath("/");

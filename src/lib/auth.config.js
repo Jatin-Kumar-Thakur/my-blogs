@@ -1,7 +1,3 @@
-// import { redirect } from "next/navigation";
-
-import { connectToDb } from "./utils";
-
 export const authConfig = {
     pages: {
         signIn: "/login",
