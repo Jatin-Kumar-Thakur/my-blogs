@@ -3,13 +3,8 @@
 import { useState } from "react";
 import NavLink from "./navlink/page";
 import { FaBars } from "react-icons/fa";
-import { handleGithubLogOut } from "@/lib/action";
+import { handleGithubLogOut, userDetails } from "@/lib/action";
 
-// import { useState } from "react";
-// import styles from "./links.module.css";
-// import NavLink from "./navLink/navLink";
-// import Image from "next/image";
-// import { handleLogout } from "@/lib/action";
 const links = [
     {
         title: "Homepage",
@@ -34,7 +29,7 @@ const links = [
 ];
 
 const Links = ({ session }) => {
-    // console.log(session.user);
+    // console.log(session?.user);
     const isAdmin = true;
     const [toggle, setToggle] = useState(false);
     return (
@@ -53,7 +48,7 @@ const Links = ({ session }) => {
                         </>
                     )
                         :
-                        <NavLink  item={{ title: "Login", path: "/login" }} />
+                        <NavLink item={{ title: "Login", path: "/login" }} />
                 }
             </div>
             <button className="md:hidden" onClick={() => setToggle(!toggle)}><FaBars size={25} /></button>
@@ -63,19 +58,19 @@ const Links = ({ session }) => {
                     ease-in-out overflow-hidden w-[50%] bg-[var(--bg)] h-[calc(100vh-200px)]
                     ">
                         {links.map((link) => (
-                            <NavLink item={link} key={link.title} />
+                            <button onClick={() => setToggle(false)}><NavLink item={link} key={link.title} /></button>
                         ))}
                         {
                             session ? (
                                 <>
-                                    {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+                                    {isAdmin && <button onClick={() => setToggle(false)}><NavLink item={{ title: "Admin", path: "/admin" }} /></button>}
                                     <form action={handleGithubLogOut}>
                                         <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
                                     </form>
                                 </>
                             )
                                 :
-                                <NavLink item={{ title: "Login", path: "/login" }} />
+                                <button onClick={() => setToggle(false)}><NavLink item={{ title: "Login", path: "/login" }} /></button>
                         }
                     </div>
                 )

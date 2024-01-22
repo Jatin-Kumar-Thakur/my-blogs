@@ -1,5 +1,5 @@
 "use server"
-import { revalidatePath} from "next/cache";
+import { revalidatePath } from "next/cache";
 import { signIn, signOut } from "./auth";
 import { Post, User } from "./models";
 import { connectToDb } from "./utils";
@@ -48,7 +48,11 @@ export const login = async (previousState, formData) => {
 
     try {
         // Using nextAuth
-        await signIn("credentials", { username, password });
+        const loginuser = await signIn("credentials", { username, password, callbackUrl: '/', redirect: false });
+        revalidatePath("/login");
+        revalidatePath("/");
+        revalidatePath("/");
+        return { success: true };
     } catch (error) {
         console.log(error);
         if (error.message.includes("CredentialsSignIn")) {
@@ -141,14 +145,3 @@ export const deleteUser = async (formData) => {
         return { error: "something went wrong While deleting User" }
     }
 }
-
-// export const userDetails=async (id)=>{
-//     try {
-//         connectToDb();
-//         const data=await User.findById(id);
-//         return data;
-//     } catch (error) {
-//         console.log(error);
-//         return { error: "something went wrong While findinf User details" }
-//     }
-// }
