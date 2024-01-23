@@ -3,7 +3,8 @@ import Image from "next/image";
 
 // Using api routes 
 const getData = async (slug) => {
-    const post = await fetch(`http://localhost:3000/api/blog/${slug}`);
+    const url=process.env.BLOG_URL;
+    const post = await fetch(`${url}/${slug}`);
     if (!post.ok) {
         throw new Error("Somthing Went wrong while fetching post");
     }

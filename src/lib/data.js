@@ -27,11 +27,31 @@ export const getPost = async (slug) => {
         throw new Error("Failed to Fetch Post");
     }
 }
+export const getUserPosts = async (userId) => {
+    try {
+        connectToDb();
+        const post = await Post.find({userId:userId});
+        return post;
+    } catch (error) {
+        console.log(error);
+        throw new Error("Failed to Fetch Post");
+    }
+}
 export const getUser = async (id) => {
     noStore();
     try {
         connectToDb();
         const user = await User.findById(id);
+        return user;
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to fetch user!");
+    }
+}
+export const getUserByEmail = async (email) => {
+    try {
+        connectToDb();
+        const user = await User.findOne({email});
         return user;
     } catch (err) {
         console.log(err);

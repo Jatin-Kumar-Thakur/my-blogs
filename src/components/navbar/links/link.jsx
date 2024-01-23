@@ -24,7 +24,7 @@ const links = [
     },
     {
         title: "Mine",
-        path: "/userblogs",
+        path: "/aboutuser",
     },
 ];
 

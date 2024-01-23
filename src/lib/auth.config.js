@@ -4,7 +4,6 @@ export const authConfig = {
     },
     providers: [],
     callbacks: {
-        // FOR MORE DETAIL ABOUT CALLBACK FUNCTIONS CHECK https://next-auth.js.org/configuration/callbacks
         async jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
@@ -26,6 +25,8 @@ export const authConfig = {
             const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
             const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");
             const isOnLoginPage = request.nextUrl?.pathname.startsWith("/login");
+            const isOnUserPage = request.nextUrl?.pathname.startsWith("/aboutuser");
+            
 
             // ONLY ADMIN CAN REACH THE ADMIN DASHBOARD
             if (isOnAdminPanel && !user?.isAdmin) {
@@ -41,7 +42,11 @@ export const authConfig = {
             if (isOnLoginPage && user) {
                 return Response.redirect(new URL("/", request.nextUrl));
             }
-
+            
+            // for about page
+            if(isOnUserPage && !user){
+                return false;
+            }
             return true
         },
     },
