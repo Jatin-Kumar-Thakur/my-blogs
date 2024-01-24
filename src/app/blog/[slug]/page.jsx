@@ -36,7 +36,7 @@ const SlugPost = async ({ params }) => {
                     className="object-contain md:object-cover"
                 />
             </div>
-            <div className=" md:overflow-y-scroll 
+            <div className=" md:overflow-y-scroll scrollbar-hide  
                 md:basis-2/3
             ">
                 <h1 className="text-4xl font-bold mb-5">{post.title}</h1>
@@ -62,6 +62,7 @@ const SlugPost = async ({ params }) => {
                         {post.desc}
                     </p>
                 </div>
+                <h1 className="mt-5 font-xl">The End!</h1>
             </div>
         </div>
     )
