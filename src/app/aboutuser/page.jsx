@@ -9,12 +9,12 @@ const MyBlogs = async () => {
     const user = session.user;
     let data;
     let posts;
+    let id;
     if (user?.email) {
-        console.log("inmail")
         data = await getUserByEmail(user.email);
+        id=data._id.valueOf();
         posts = await getPosts();
-        posts = posts.filter((item) => item.userId === user.id);
-
+        posts = posts.filter((item) =>item.userId === id);
     }
     else {
         data = await getUser(user.id);
@@ -23,28 +23,29 @@ const MyBlogs = async () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-200px)] flex flex-col md:flex-row">
-            <div className=" w-full mb-14 basis-1/2">
-                <div className="flex flex-col gap-5 justify-center items-center">
+        <div className="min-h-[calc(100vh-200px)] flex flex-col md:flex-row gap-10">
+            <div className=" w-full mb-14 basis-1/3">
+                <div className="flex flex-col gap-5">
                     <div className="">
                         <Image
                             src={data?.img || "/noavatar.png"}
                             width={200}
                             height={200}
                             alt="user image"
+                            className="rounded-md"
                         />
                     </div>
                     <div className="font-bold">
-                        <p className="text-3xl text-center">{data?.username}</p>
-                        <p className="text-xl">{data?.email}</p>
-                        <div className="mt-5 text-center">
+                        <p className="text-2xl md:text-left text-center">{data?.username}</p>
+                        <p className="text-md">{data?.email}</p>
+                        <div className="mt-5 md:text-left text-center">
                             <p>Total Posts : count</p>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <div className="basis-1/2">
+            <div className="basis-2/3">
                 <div className="flex justify-between items-center">
                     <h1 className="text-2xl font-bold underline">All Posts</h1>
                     <div className="">
@@ -66,7 +67,7 @@ const MyBlogs = async () => {
                                     width={50}
                                     className="overflow-hidden h-12 w-12 rounded-full object-fill"
                                 />
-                                <span className="truncate">{item.title} </span>
+                                <span className="truncate"><Link href={`/blog/${item.slug}`}>{item.title}</Link></span>
                             </div>
                             <div className="flex gap-2">
                                 <form action="">

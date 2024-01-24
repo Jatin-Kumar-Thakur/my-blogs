@@ -67,14 +67,14 @@ export const login = async (previousState, formData) => {
 
 export const addPost = async (prevState, formData) => {
     const { title, desc, slug, userId, img } = Object.fromEntries(formData);
-
+    const slg=slug.replaceAll(' ','-');
     try {
         connectToDb();
         const newPost = new Post({
-            title, desc, slug, userId, img
+            title, desc, slug:slg, userId, img
         });
         await newPost.save();
-        console.log("Post Successfully");
+        // console.log("Post Successfully");
         revalidatePath("/blog")
         revalidatePath("/admin")
 
