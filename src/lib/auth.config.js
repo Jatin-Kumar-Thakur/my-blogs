@@ -15,12 +15,13 @@ export const authConfig = {
             if (token) {
                 session.user.id = token.id;
                 session.user.isAdmin = token.isAdmin;
-                // console.log(session.user);
             }
             return session;
         },
-        async authorized({ auth, request }) {
-            const user = auth?.user;
+        authorized({auth, request }) {
+            // console.log(auth.user);
+            const userD = auth?.user;
+
             // console.log(auth)
             const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
             const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");
@@ -29,22 +30,23 @@ export const authConfig = {
             
 
             // ONLY ADMIN CAN REACH THE ADMIN DASHBOARD
-            if (isOnAdminPanel && !user?.isAdmin) {
+            if (isOnAdminPanel && !userD?.isAdmin) {
+                // console.log(userD.isAdmin);
                 return true;
             }
 
             // ONLY AUTHENTICATED USERS CAN REACH THE BLOG PAGE
-            if (isOnBlogPage && !user) {
+            if (isOnBlogPage && !userD) {
                 return false;
             }
 
             // ONLY UNAUTHENTICATED USERS CAN REACH THE LOGIN PAGE
-            if (isOnLoginPage && user) {
+            if (isOnLoginPage && userD) {
                 return Response.redirect(new URL("/", request.nextUrl));
             }
             
             // for about page
-            if(isOnUserPage && !user){
+            if(isOnUserPage && !userD){
                 return false;
             }
             return true

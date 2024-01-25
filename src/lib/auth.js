@@ -67,6 +67,9 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
                 return true;
             },
             ...authConfig.callbacks,
-        }
-    })
+        },
+    });
+
+
+    
 

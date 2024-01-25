@@ -77,6 +77,7 @@ export const addPost = async (prevState, formData) => {
         // console.log("Post Successfully");
         revalidatePath("/blog")
         revalidatePath("/admin")
+        revalidatePath("/")
 
     } catch (error) {
         console.log(error);

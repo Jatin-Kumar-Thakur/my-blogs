@@ -33,7 +33,7 @@ const AdminUserForm = () => {
                 // },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        // console.log('File available at', downloadURL);
+                        console.log('File available at', downloadURL);
                         setMedia(downloadURL);
                     });
                 }

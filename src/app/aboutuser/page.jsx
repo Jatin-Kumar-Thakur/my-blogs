@@ -52,7 +52,7 @@ const MyBlogs = async () => {
                         <form action="">
                             <input type="hidden" value={user.id}/>
                             <button className="bg-[var(--btn)] p-1 rounded-sm">
-                                <Link href="/aboutuser/addpost">AddUser</Link>
+                                <Link href="/aboutuser/addpost">Add Post</Link>
                             </button>
                         </form>
                     </div>
