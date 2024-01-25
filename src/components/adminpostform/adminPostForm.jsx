@@ -5,9 +5,10 @@ import { useEffect, useState } from "react"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/lib/firebase";
 
+
 const storage = getStorage(app);
 const AdminPostForm = ({ userId }) => {
-
+    const [content,setContent]=useState("");
     const [state, formAction] = useFormState(addPost, undefined);
     const [image, setImage] = useState(null);
     const [media, setMedia] = useState("");
@@ -50,7 +51,7 @@ const AdminPostForm = ({ userId }) => {
             <div>
                 <form action={formAction} className="flex flex-col gap-4 items-center">
                     <input type="hidden" name="userId" value={userId} />
-                    <input type="text" name="title" placeholder="Enter title.."
+                    <input type="text" name="title" placeholder="Enter title..."
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />

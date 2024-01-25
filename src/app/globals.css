@@ -20,7 +20,7 @@
 body {
     background-color: var(--bg);
     color: var(--text);
-    
+
 }
 
 a {
@@ -30,6 +30,20 @@ a {
 
 .container {
     width: 1556px;
+}
+
+.ql-container {
+    font-size: 28px !important;
+    /* background-color:var(--bgSoft); */
+    width: 100%;
+}
+
+.quill>.ql-container>.ql-editor.ql-blank::before {
+    color: #b3b3b1;
+}
+.ql-tooltip-editor input{
+    background-color: var(--bgSoft);
+    width: 100%;
 }
 
 @media (max-width: 1536px) {
