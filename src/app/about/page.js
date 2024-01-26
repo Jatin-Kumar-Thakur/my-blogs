@@ -6,7 +6,7 @@ const Page = () => {
             <div className="w-full flex flex-col justify-around gap-7">
                 <p className=" text-2xl font-bold text-[var(--btn)]">About Agency</p>
                 <h1 className="text-2xl  font-bold lg:text-5xl">
-                    SomeThing is Going on here soo please get out
+                Your way Create a unique and beautiful blog easily.
                 </h1>
                 <p className="text-sm ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 

@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const Home = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 mt-10">
       <div className="w-full flex flex-col-reverse justify-between items-center gap-7
                     sm:flex-row sm:gap-0">
         <div className="w-full flex flex-col justify-center gap-8">
           <h1 className="text-2xl font-bold
                       lg:text-5xl">
-            SomeThing is Going on here soo please get out
+            Your way Create a unique and beautiful blog easily.
           </h1>
           <p className="text-sm ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
