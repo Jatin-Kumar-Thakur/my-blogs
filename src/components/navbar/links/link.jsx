@@ -4,6 +4,7 @@ import { useState } from "react";
 import NavLink from "./navlink/page";
 import { FaBars } from "react-icons/fa";
 import { handleGithubLogOut} from "@/lib/action";
+import Link from "next/link";
 
 const links = [
     {
@@ -34,7 +35,7 @@ const Links = ({ session }) => {
     const [toggle, setToggle] = useState(false);
     return (
         <div className="">
-            <div className="md:flex gap-0 text-sm hidden">
+            <div className="hidden lg:visible md:flex gap-0 text-sm ">
                 {links.map((link) => (
                     <NavLink item={link} key={link.title} />
                 ))}
