@@ -29,9 +29,11 @@ const AdminUserForm = () => {
                             break;
                     }
                 },
-                // (error) => {
-                // },
+                (error) => {
+                    console.log("error while uploading image");
+                },
                 () => {
+                    console.log(uploadTask.snapshot.ref)
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         console.log('File available at', downloadURL);
                         setMedia(downloadURL);
@@ -48,25 +50,25 @@ const AdminUserForm = () => {
             <h1 className="text-2xl font-bold my-2 text-center">Add New User</h1>
             <div className="">
                 <form action={formAction} className="flex flex-col gap-4 items-center">
-                    <input type="text" name="username" placeholder="Enter name.."
+                    <input type="text" name="username" placeholder="Name"
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <input type="text" name="email" placeholder="Email..."
+                    <input type="text" name="email" placeholder="Email"
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <input type="hidden" name="img" value={media ? media : undefined} />
+                    <input type="hidden" name="img" value={media ? media : ""} />
                     <input type="file" placeholder="Image" onChange={(e) => setImage(e.target.files[0])}
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <input type="password" name="password" placeholder="Password..."
+                    <input type="password" name="password" placeholder="Password"
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
                     <select name="isAdmin" className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]">
-                        <option value={false} selected>IsAdmin?</option>
+                        <option value={false} defaultValue={false}>IsAdmin?</option>
                         <option value={false}>No</option>
                         <option value={true}>Yes</option>
                     </select>

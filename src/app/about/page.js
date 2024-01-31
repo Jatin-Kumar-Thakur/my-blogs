@@ -1,18 +1,22 @@
 import Image from "next/image";
+import style from '../../style/about.module.css'
 
 const Page = () => {
     return (
-        <div className="w-full flex justify-between items-center">
+        <div className={`w-full flex justify-between items-center ${style.aboutcontainer}`}>
             <div className="w-full flex flex-col justify-around gap-7">
                 <p className=" text-2xl font-bold text-[var(--btn)]">About Agency</p>
                 <h1 className="text-2xl  font-bold lg:text-5xl">
-                Your way Create a unique and beautiful blog easily.
+                    Your way Create a unique and beautiful blog easily.
                 </h1>
                 <p className="text-sm ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Sint reprehenderit ratione molestias nobis necessitatibus 
-                    ipsa excepturi architecto, eveniet in facilis ullam. Repellat 
-                    ab voluptate ex veritatis enim velit illo suscipit. 
+                    Welcome to our vibrant blog community,
+                    where words come alive and ideas flourish.
+                    Immerse yourself in a diverse tapestry of perspectives,
+                    passions, and stories. Explore the intersection of knowledge
+                    and creativity as our contributors share insights, experiences,
+                    and thought-provoking content. Join us in fostering a dynamic space for inspiration,
+                    connection, and the joy of discovery.
                 </p>
                 <div className="flex justify-between">
                     <div className="">
@@ -29,7 +33,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-            <div className=" sm:w-full sm:flex sm:justify-end hidden ">
+            <div className=" sm:w-full md:flex sm:justify-end">
                 <Image
                     src='/about.png'
                     alt='home img'

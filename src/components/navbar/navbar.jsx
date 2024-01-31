@@ -2,6 +2,7 @@ import Link from "next/link"
 import Links from "./links/link";
 // import { handleGithubLogOut } from "@/lib/action";
 import { auth } from "@/lib/auth";
+import Image from "next/image";
 
 const Navbar = async () => {
     const session = await auth();
@@ -10,7 +11,14 @@ const Navbar = async () => {
         <nav className=" flex justify-between items-center w-full h-20">
             <div className="">
                 <p className="font-bold text-3xl">
-                        <Link href='/'>LOGO</Link>
+                        <Link href='/'>
+                            <Image 
+                                src='/blog-logo.png'
+                                alt='LOGO'
+                                width={100}
+                                height={50}
+                            />
+                        </Link>
                 </p>
             </div>
             <div className="">

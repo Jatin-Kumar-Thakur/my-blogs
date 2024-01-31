@@ -1,5 +1,6 @@
 import MostRecent from "@/components/homePage/mostrecent";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -12,13 +13,18 @@ const Home = () => {
             Your way Create a unique and beautiful blog easily.
           </h1>
           <p className="text-sm ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Praesentium error perferendis excepturi possimus at, in esse!
+            Welcome to our vibrant blog community, <br />
+            where words come alive and ideas flourish.
+
 
           </p>
           <p className="flex gap-5">
-            <button className="bg-[var(--btn)] py-3 px-3 rounded-md text-sm">BUTTON A</button>
-            <button className="bg-[var(--btn)] py-3 px-3 rounded-md text-sm">BUTTON B</button>
+          <Link href='/about'>
+              <span className="bg-[var(--btn)] py-3 px-5 rounded-md">About</span>
+            </Link>
+            <Link href='/blog'>
+              <span className="bg-[var(--btn)] py-3 px-5 rounded-md">Blogs</span>
+            </Link>
           </p>
           <Image
             src='/brands.png'
@@ -39,7 +45,7 @@ const Home = () => {
         </div>
       </div>
       {/* <div className=""> */}
-        <MostRecent />
+      <MostRecent />
       {/* </div> */}
     </div>
   )

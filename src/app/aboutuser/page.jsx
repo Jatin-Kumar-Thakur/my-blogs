@@ -25,7 +25,7 @@ const MyBlogs = async () => {
     return (
         <div className="min-h-[calc(100vh-200px)] flex flex-col md:flex-row gap-10">
             <div className=" w-full mb-14 basis-1/3">
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 items-center md:items-start">
                     <div className="">
                         <Image
                             src={data?.img || "/noavatar.png"}
@@ -36,10 +36,10 @@ const MyBlogs = async () => {
                         />
                     </div>
                     <div className="font-bold">
-                        <p className="text-2xl md:text-left text-center">{data?.username}</p>
+                        <p className="text-2xl md:text-left text-center">{data?.username.toUpperCase()}</p>
                         <p className="text-md">{data?.email}</p>
                         <div className="mt-5 md:text-left text-center">
-                            <p>Total Posts : count</p>
+                            <p>Total Posts : {posts.length}</p>
                         </div>
 
                     </div>
