@@ -30,7 +30,7 @@ const AdminUserForm = () => {
                     }
                 },
                 (error) => {
-                    console.log("error while uploading image");
+                    console.log("error while uploading image",error);
                 },
                 () => {
                     console.log(uploadTask.snapshot.ref)

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import NavLink from "./navlink/page";
 import { FaBars } from "react-icons/fa";
-import { handleGithubLogOut} from "@/lib/action";
-// import Link from "next/link";
+import { handleGithubLogOut } from "@/lib/action";
 import style from './navlink/navlink.module.css'
 
 const links = [
@@ -24,14 +23,11 @@ const links = [
         title: "Blog",
         path: "/blog",
     },
-    {
-        title: "Mine",
-        path: "/aboutuser",
-    },
+
 ];
 
 const Links = ({ session }) => {
-    // console.log(session?.user);
+    // console.log(session);
     const isAdmin = true;
     const [toggle, setToggle] = useState(false);
     return (
@@ -43,14 +39,15 @@ const Links = ({ session }) => {
                 {
                     session ? (
                         <>
-                            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} key={"admin"}/>}
+                            <NavLink item={{ title: "Profile", path: "/aboutuser" }} key={"profile"} />
+                            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} key={"admin"} />}
                             <form action={handleGithubLogOut}>
                                 <button className="p-2 bg-[var(--btn)] font-medium ml-2">Logout</button>
                             </form>
                         </>
                     )
                         :
-                        <NavLink item={{ title: "Login", path: "/login" }} key={"login"}/>
+                        <NavLink item={{ title: "Login", path: "/login" }} key={"login"} />
                 }
             </div>
             <button className="md:hidden" onClick={() => setToggle(!toggle)}><FaBars size={25} /></button>
@@ -60,12 +57,12 @@ const Links = ({ session }) => {
                     ease-in-out overflow-hidden w-[50%] bg-[var(--bg)] h-[calc(100vh-200px)]
                     ">
                         {links.map((link) => (
-                            <button key={link.title}  onClick={() => setToggle(false)}><NavLink item={link}/></button>
+                            <button key={link.title} onClick={() => setToggle(false)}><NavLink item={link} /></button>
                         ))}
                         {
                             session ? (
                                 <>
-                                    {isAdmin && <button onClick={() => setToggle(false)}><NavLink item={{ title: "Admin", path: "/admin" }} key={"admin"}/></button>}
+                                    {isAdmin && <button onClick={() => setToggle(false)}><NavLink item={{ title: "Admin", path: "/admin" }} key={"admin"} /></button>}
                                     <form action={handleGithubLogOut}>
                                         <button className="p-2 bg-[var(--btn)] font-medium">Logout</button>
                                     </form>

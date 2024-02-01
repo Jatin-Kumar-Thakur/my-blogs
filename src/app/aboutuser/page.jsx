@@ -1,6 +1,6 @@
 import { deletePost } from "@/lib/action";
 import { auth } from "@/lib/auth"
-import { getPosts, getUser, getUserByEmail, getUserPosts } from "@/lib/data";
+import { getPosts, getUser, getUserByEmail} from "@/lib/data";
 import Image from "next/image"
 import Link from "next/link";
 
@@ -58,7 +58,7 @@ const MyBlogs = async () => {
                     </div>
                 </div>
                 {
-                    posts.map((item) => (
+                    posts.length>0 ? posts.map((item) => (
                         <div className="flex gap-4 my-4 items-center justify-between" key={item.id}>
                             <div className="flex justify-center items-center gap-3">
                                 <Image src={item.img || "/noavatar.png"}
@@ -81,6 +81,10 @@ const MyBlogs = async () => {
                             </div>
                         </div>
                     ))
+                    :
+                    <div className="flex justify-center items-center h-full text-3xl font-thin">
+                        <h1>No Posts</h1>
+                    </div>
                 }
             </div>
         </div>

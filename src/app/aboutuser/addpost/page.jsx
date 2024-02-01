@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 
-const AddPost = async (userId) => {
+const AddPost = async () => {
     const session = await auth();
     const user = session.user;
     let data;

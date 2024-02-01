@@ -9,11 +9,12 @@ import { app } from "@/lib/firebase";
 const storage = getStorage(app);
 
 const AdminPostForm = ({ userId }) => { 
-    const [content,setContent]=useState("");
     const [state, formAction] = useFormState(addPost, undefined);
     const [image, setImage] = useState(null);
     const [media, setMedia] = useState("");
+    const [slug,setSlug]=useState("");
 
+    // const newDate= new Date().getTime()
     useEffect(() => {
         const upload = () => {
             const name = new Date().getTime + image.name;
@@ -33,7 +34,7 @@ const AdminPostForm = ({ userId }) => {
                     }
                 },
                 (error) => {
-                    console.log("error while uploading image");
+                    console.log("error while uploading image",error);
                 },
                 () => {
                     console.log(uploadTask.snapshot.ref)
@@ -54,11 +55,11 @@ const AdminPostForm = ({ userId }) => {
             <div>
                 <form action={formAction} className="flex flex-col gap-4 items-center">
                     <input type="hidden" name="userId" value={userId} />
-                    <input type="text" name="title" placeholder="Title..."
+                    <input type="text" name="title" placeholder="Title..." onChange={(e)=>setSlug(e.target.value + new Date().getTime())}
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
-                    <input type="text" name="slug" placeholder="Slug..."
+                    <input type="hidden" name="slug" placeholder="Slug..." value={slug}
                         className="w-[80%] p-2 rounded-md outline-none border-none bg-[var(--bgSoft)]
                         "
                     />
