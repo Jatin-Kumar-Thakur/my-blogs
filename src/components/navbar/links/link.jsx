@@ -23,11 +23,15 @@ const links = [
         title: "Blog",
         path: "/blog",
     },
+    {
+        title: "Profile",
+        path: "/aboutuser",
+    },
+
 
 ];
 
 const Links = ({ session }) => {
-    // console.log(session);
     const isAdmin = true;
     const [toggle, setToggle] = useState(false);
     return (
@@ -39,7 +43,6 @@ const Links = ({ session }) => {
                 {
                     session ? (
                         <>
-                            <NavLink item={{ title: "Profile", path: "/aboutuser" }} key={"profile"} />
                             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} key={"admin"} />}
                             <form action={handleGithubLogOut}>
                                 <button className="p-2 bg-[var(--btn)] font-medium ml-2">Logout</button>

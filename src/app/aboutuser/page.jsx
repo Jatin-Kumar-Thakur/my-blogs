@@ -59,13 +59,13 @@ const MyBlogs = async () => {
                 </div>
                 {
                     posts.length>0 ? posts.map((item) => (
-                        <div className="flex gap-4 my-4 items-center justify-between" key={item.id}>
-                            <div className="flex justify-center items-center gap-3">
+                        <div className="flex gap-4 my-4 items-center justify-between overflow-hidden" key={item.id}>
+                            <div className="flex overflow-hidden justify-center items-center gap-3">
                                 <Image src={item.img || "/noavatar.png"}
                                     alt=""
                                     height={50}
                                     width={50}
-                                    className="overflow-hidden h-12 w-12 rounded-full object-fill"
+                                    className=" h-12 w-12 rounded-full object-fill"
                                 />
                                 <span className="truncate"><Link href={`/blog/${item.slug}`}>{item.title}</Link></span>
                             </div>

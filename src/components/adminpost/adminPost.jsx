@@ -20,17 +20,17 @@ const AdminPost = async () => {
             <div className="">
                 {
                     posts.map((item) => (
-                        <div className="flex gap-2 my-4 items-center justify-between" key={item.id}>
-                            <div className="flex justify-center items-center gap-3">
+                        <div className="flex w-full gap-2 my-4 items-center justify-between" key={item.id}>
+                            <div className="flex truncate items-center gap-3 basis-3/4">
                                 <Image src={item.img || "/noavatar.png"}
                                     alt=""
                                     height={50}
                                     width={50}
-                                    className="overflow-hidden h-12 rounded-full object-fill"
+                                    className=" h-12 rounded-full object-fill"
                                 />
-                                <span>{item.title}</span>
+                                <p className="truncate">{item.title}</p>
                             </div>
-                            <div className="">
+                            <div className="basis-1/4 flex justify-end">
                                 {/* <form action={() => deletePostWithId(item.id)}> */}
                                 <form action={deletePost}>
                                     <input type="hidden" value={item.id} name="id" />
