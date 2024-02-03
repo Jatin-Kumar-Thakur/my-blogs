@@ -1,3 +1,5 @@
+import { connectToDb } from "./utils";
+
 export const authConfig = {
     pages: {
         signIn: "/login",
@@ -5,23 +7,17 @@ export const authConfig = {
     providers: [],
     callbacks: {
         async jwt({ token, user }) {
-            // console.log(account);
+            // console.log(token)
             if (user) {
                 token.id = user.id;
                 token.isAdmin = user.isAdmin;
             }
             return token;
         },
-        // async jwt({ token, account, user }) {
-        //     // Persist the OAuth access_token and or the user id to the token right after signin
-        //     if (account) {
-        //         // token.accessToken = account.access_token
-        //         token.id = user.id
-        //     }
-        //     return token
-        // },
         async session({ session, token }) {
-            if (token) {
+            // console.log(session);
+            // console.log(token);
+                if (token) {
                 session.user.id = token.id;
                 session.user.isAdmin = token.isAdmin;
             }
@@ -29,7 +25,7 @@ export const authConfig = {
         },
         authorized({ auth, request }) {
             const userD = auth?.user;
-            // console.log();
+            // console.log(auth?.user);
 
 
             // console.log(auth)
