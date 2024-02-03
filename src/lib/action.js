@@ -15,7 +15,7 @@ export const handleGithubLogOut = async () => {
 }
 
 export const register = async (previousState, formData) => {
-    const { username, email, password, passwordagain } = Object.fromEntries(formData);
+    const { username, email, password, passwordagain ,img } = Object.fromEntries(formData);
     if (password != passwordagain) {
         return { error: "Password do not Match" };
     }
@@ -30,6 +30,7 @@ export const register = async (previousState, formData) => {
                 username,
                 email,
                 password: hashedPassword,
+                img,
             })
             await newUser.save();
             return { success: true };

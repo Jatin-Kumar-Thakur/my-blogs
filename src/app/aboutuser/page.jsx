@@ -23,7 +23,7 @@ const MyBlogs = async () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-200px)] flex flex-col md:flex-row gap-10">
+        <div className="min-h-[calc(100vh-200px)] flex flex-col md:flex-row gap-10 mt-8">
             <div className=" w-full mb-14 basis-1/3">
                 <div className="flex flex-col gap-5 items-center md:items-start">
                     <div className="">
