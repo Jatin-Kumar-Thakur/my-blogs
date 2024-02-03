@@ -1,5 +1,3 @@
-import { connectToDb } from "./utils";
-
 export const authConfig = {
     pages: {
         signIn: "/login",
